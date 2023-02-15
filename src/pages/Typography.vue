@@ -49,13 +49,26 @@
       >Velit mollit dolore deserunt elit reprehenderit labore incididunt veniam
       est enim labore qui.</span
     >
+    <q-btn
+      color="primary"
+      :label="sideMenuOpen ? 'Cerrar Menu' : 'Abrir Menu Lateral'"
+      class="q-mt-md"
+      @click="toggleSideMenu"
+    />
   </q-page>
 </template>
 
 <script>
 import { defineComponent } from "vue";
-
+import useUI from "../composable/useUI";
 export default defineComponent({
   name: "TypographyPage",
+  setup() {
+    const { sideMenuOpen, toggleSideMenu } = useUI();
+    return {
+      sideMenuOpen,
+      toggleSideMenu,
+    };
+  },
 });
 </script>
